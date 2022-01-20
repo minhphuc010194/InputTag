@@ -1,0 +1,20 @@
+.wrap {
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
+}
+.input {
+  border: 0;
+  outline: 0;
+  margin-right: 4px;
+  margin-top: 4px;
+}
+.input:focus {
+  outline: none;
+}
+.item_text {
+  margin-right: 4px;
+  margin-top: 4px;
+}
+
