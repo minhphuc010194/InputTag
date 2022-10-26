@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Box, Flex, Tag, TagCloseButton } from "@chakra-ui/react";
+import { CloseIcon } from '@chakra-ui/icons';
+
 import styles from "./Input.module.css";
 const dataTemp = ["hello1", "hello2"];
 export default function InputTag() {
@@ -77,6 +79,16 @@ export default function InputTag() {
             className={styles.input}
             size={sizeInput}
           />
+          <Box marginLeft={'auto'}>
+            {dataInput.length > 0 && (
+              <CloseIcon
+                cursor={'pointer'}
+                onClick={() => {
+                  setDataIput([]);
+                }}
+              />
+            )}
+          </Box>
         </Box>
       </Flex>
     </div>
