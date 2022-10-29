@@ -1,1 +1,12 @@
 node_modules
+/node_modules
+node_modules/
+logs
+
+*.log
+.DS_Store
+*/.DS_Store
+build
+/build
+build/
+build/*

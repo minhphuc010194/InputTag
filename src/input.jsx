@@ -1,37 +1,38 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Box, Flex, Tag, TagCloseButton } from "@chakra-ui/react";
+import { useState, useEffect, useRef } from 'react';
+import { Box, Flex, Tag, TagCloseButton } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 
-import styles from "./Input.module.css";
-const dataTemp = ["hello1", "hello2"];
+import styles from './Input.module.css';
+const dataTemp = ['hello1', 'hello2'];
 export default function InputTag() {
   const [dataInput, setDataIput] = useState(() => [...dataTemp]);
   const [sizeInput, setSizeInput] = useState(() => 1);
   const ref_input = useRef(null);
 
   useEffect(() => {
+    ref_input.current?.focus();
     function handleKeyUp(event) {
-      const newText = ref_input.current.value.trim().replace(",", "");
+      const newText = ref_input.current.value.trim().replace(',', '');
       switch (event.key) {
-        case ",":
+        case ',':
           if (newText.length > 0) {
             const dataInputTemp = [...dataInput];
             dataInputTemp.push(newText);
             setDataIput(() => [...dataInputTemp]);
-            ref_input.current.value = "";
+            ref_input.current.value = '';
           } else {
-            ref_input.current.value = "";
+            ref_input.current.value = '';
           }
           break;
-        case "Enter":
+        case 'Enter':
           if (newText.length > 0) {
             const dataInputTemp = [...dataInput];
             dataInputTemp.push(newText);
             setDataIput(() => [...dataInputTemp]);
-            ref_input.current.value = "";
+            ref_input.current.value = '';
           }
           break;
-        case "Backspace":
+        case 'Backspace':
           if (dataInput.length > 0 && newText.length === 0) {
             const dataInputTemp = [...dataInput];
             dataInputTemp.pop();
@@ -42,8 +43,8 @@ export default function InputTag() {
           break;
       }
     }
-    window.addEventListener("keyup", handleKeyUp);
-    return () => window.removeEventListener("keyup", handleKeyUp);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => window.removeEventListener('keyup', handleKeyUp);
   }, [sizeInput, dataInput]);
 
   const handleChangeInput = (e) => {
@@ -51,7 +52,7 @@ export default function InputTag() {
     if (value.trim().length > 0) {
       setSizeInput(value.length);
     } else {
-      ref_input.current.value = "";
+      ref_input.current.value = '';
     }
   };
   function handleDelItem(index) {
@@ -65,7 +66,7 @@ export default function InputTag() {
         <Box>
           {dataInput.map((text, i) => (
             <Tag
-              key={i + "_" + text}
+              key={i + '_' + text}
               colorScheme="cyan"
               className={styles.item_text}
             >
@@ -79,16 +80,6 @@ export default function InputTag() {
             className={styles.input}
             size={sizeInput}
           />
-          <Box marginLeft={'auto'}>
-            {dataInput.length > 0 && (
-              <CloseIcon
-                cursor={'pointer'}
-                onClick={() => {
-                  setDataIput([]);
-                }}
-              />
-            )}
-          </Box>
         </Box>
       </Flex>
     </div>
