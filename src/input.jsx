@@ -81,6 +81,16 @@ export default function InputTag() {
             size={sizeInput}
           />
         </Box>
+        <Box marginLeft={'auto'}>
+          {dataInput.length > 0 && (
+            <CloseIcon
+              cursor={'pointer'}
+              onClick={() => {
+                setDataIput([]);
+              }}
+            />
+          )}
+        </Box>
       </Flex>
     </div>
   );
