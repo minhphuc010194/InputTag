@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.25.0",
-    "typescript": "5.4.5"
+    "typescript": "5.5.4"
   },
   "scripts": {
     "start": "react-scripts start",
